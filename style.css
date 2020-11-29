@@ -70,12 +70,64 @@ body {
 
 /* TOGGLE */
 
+.toggle-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .toggle-div span {
   color: var(--Light-Grayish-Blue);
 }
 
 .toggle {
+  position: relative;
   display: inline-block;
+  margin: 0 1em;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  width: 52px;
+  height: 30px;
+  text-indent: -150%;
+  clip: rect(0 0 0 0);
+  color: transparent;
+  user-select: none;
+}
+
+.toggle-label::before,
+.toggle-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+
+.toggle-label::before {
+  width: 100%;
+  height: 100%;
+  background: var(--btn-accent);
+  border-radius: 100vw;
+}
+
+.toggle-label::after {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: left 0.25s ease;
+}
+
+.toggle-input:checked + .toggle-label::after {
+  left: 25px;
 }
 
 /* CARDS */
@@ -90,7 +142,7 @@ body {
   margin: 0.5em 0;
 }
 
-.card .price--ann {
+.card .price--mon {
   display: none;
 }
 
