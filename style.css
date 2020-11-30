@@ -17,13 +17,21 @@
 /* GENERAL */
 
 body {
+  margin: 0;
+  /* position: relative; */
   padding: 3em 1em;
   color: var(--Grayish-Blue);
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  background: url(./images/bg-top.svg) no-repeat top right;
   background-color: var(--Very-Light-Grayish-Blue);
   background-size: 50%;
+}
+
+body::before {
+  position: fixed;
+  content: url(./images/bg-top.svg);
+  z-index: -1;
+  top: 0;
 }
 
 .card {
@@ -142,7 +150,7 @@ body {
   margin: 0.5em 0;
 }
 
-.card .price--mon {
+.card .price--ann {
   display: none;
 }
 
