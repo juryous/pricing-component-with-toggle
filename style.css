@@ -18,13 +18,16 @@
 
 body {
   margin: 0;
-  /* position: relative; */
   padding: 3em 1em;
   color: var(--Grayish-Blue);
   font-family: "Montserrat", sans-serif;
   text-align: center;
   background-color: var(--Very-Light-Grayish-Blue);
   background-size: 50%;
+}
+
+.container {
+  width: 100%;
 }
 
 body::before {
@@ -37,7 +40,7 @@ body::before {
 .card {
   color: var(--fg);
   background: var(--bg, white);
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0px 8px 20px 10px rgba(163, 163, 163, 0.35);
   margin: 2em 0;
   padding: 2em;
@@ -69,11 +72,24 @@ body::before {
 .btn--light {
   --btn-bg: white;
   --btn-fg: hsl(237, 63%, 64%);
+  border: 1px solid #fff;
+}
+
+.btn--light:hover {
+  background: transparent;
+  color: #fff;
 }
 
 .btn--accent {
   --btn-bg: var(--btn-accent);
   --btn-fg: white;
+  border: 1px solid #fff;
+}
+
+.btn--accent:hover {
+  background: transparent;
+  color: hsl(237, 63%, 64%);
+  border: 1px solid hsl(237, 63%, 64%);
 }
 
 /* TOGGLE */
@@ -106,6 +122,10 @@ body::before {
   clip: rect(0 0 0 0);
   color: transparent;
   user-select: none;
+}
+
+.toggle-label:hover {
+  opacity: 0.5;
 }
 
 .toggle-label::before,
@@ -162,4 +182,59 @@ body::before {
 
 .card .feature:last-of-type {
   border-bottom: 1px solid var(--Light-Grayish-Blue);
+}
+
+/* 900px BREAKPOINT */
+
+@media (min-width: 900px) {
+  /* GENERAL */
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  body::before {
+    right: 0;
+  }
+
+  body::after {
+    position: fixed;
+    content: url(./images/bg-bottom.svg);
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  /* CARDS */
+
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 33%;
+    max-width: 350px;
+  }
+
+  .card--light {
+    max-height: 500px;
+  }
+
+  .card--light:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .card--light:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .card--accent {
+    padding: 3.5em 2em;
+  }
 }
