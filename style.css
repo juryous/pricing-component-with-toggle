@@ -4,6 +4,7 @@
   --Grayish-Blue: hsl(233, 13%, 49%);
   --Dark-Grayish-Blue: hsl(232, 13%, 33%);
 
+  --accent: hsl(237, 63%, 64%);
   --btn-accent: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
   --card-accent: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
 }
@@ -23,11 +24,6 @@ body {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   background-color: var(--Very-Light-Grayish-Blue);
-  background-size: 50%;
-}
-
-.container {
-  width: 100%;
 }
 
 body::before {
@@ -35,6 +31,10 @@ body::before {
   content: url(./images/bg-top.svg);
   z-index: -1;
   top: 0;
+}
+
+.container {
+  width: 100%;
 }
 
 .card {
@@ -48,6 +48,7 @@ body::before {
 
 .card--light {
   --bg: white;
+  --fg: var(--Grayish-Blue);
 }
 
 .card--accent {
@@ -62,6 +63,7 @@ body::before {
   padding: 1em 0;
   background: var(--btn-bg, lightblue);
   color: var(--btn-fg, red);
+  border: var(--btn-brd);
   border-radius: 7px;
   font-size: 0.85rem;
   text-decoration: none;
@@ -71,25 +73,25 @@ body::before {
 
 .btn--light {
   --btn-bg: white;
-  --btn-fg: hsl(237, 63%, 64%);
-  border: 1px solid #fff;
+  --btn-fg: var(--accent);
+  --btn-brd: 1px solid white;
 }
 
 .btn--light:hover {
   background: transparent;
-  color: #fff;
+  color: var(--btn-bg);
 }
 
 .btn--accent {
   --btn-bg: var(--btn-accent);
   --btn-fg: white;
-  border: 1px solid #fff;
+  --btn-brd: 1px solid white;
 }
 
 .btn--accent:hover {
   background: transparent;
-  color: hsl(237, 63%, 64%);
-  border: 1px solid hsl(237, 63%, 64%);
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
 /* TOGGLE */
@@ -150,7 +152,7 @@ body::before {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: white;
   transition: left 0.25s ease;
 }
 
@@ -168,6 +170,10 @@ body::before {
   color: var(--fg, --Dark-Grayish-Blue);
   font-size: 4rem;
   margin: 0.5em 0;
+}
+
+.card--light .price {
+  color: var(--Dark-Grayish-Blue);
 }
 
 .card .price--ann {
